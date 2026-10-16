@@ -1,0 +1,37 @@
+// Copyright (c) 2026 Kevin Collins.
+// SPDX-License-Identifier: MPL-2.0-no-copyleft-exception
+
+dialect "../../../projects/nxbuild/language/nxbuild.Language.nxscript";
+module "../Apple.Environment.nxscript";
+
+Package AppleLocale TargetCPU[x86_64, aarch64] TargetOS[darwin, iphonesim, ios] {
+    RootDirectory: "../../..";
+    SourceRoot: "packages/nexus-packages-apple/iosxlocale";
+    OutputRoot: "output/nxbuild-apple/" + @Apple.Name + "/iosxlocale";
+
+    FPC Units {
+        CompilerPath: @Apple.CompilerPath;
+        BuildKind: Unit;
+        SourceFiles: [
+            @AppleLocale.SourceRoot + "/src/iosxlocale.pas",
+            @AppleLocale.SourceRoot + "/src/iosxwstr.pas"
+        ];
+        OutputPath: @AppleLocale.OutputRoot;
+        Config Options { DisableDefaultConfigFiles: True; }
+        Language Pascal { Mode: ObjFPC; }
+        Target Platform { OperatingSystem: @Apple.OS; }
+        Assembler Native { OutputFormat: "clang"; }
+        Definitions Symbols { Defines: []; }
+        Files Paths {
+            CompilerUtilitiesPath: @Apple.CompilerUtilitiesPath;
+            UnitPaths: [
+                @Apple.RTLPath,
+                @AppleLocale.OutputRoot,
+                "output/nxbuild-apple/" + @Apple.Name + "/univint",
+                "packages/nexus-packages-apple/univint/src",
+                @AppleLocale.SourceRoot + "/src"
+            ];
+            IncludePaths: [@AppleLocale.SourceRoot + "/src"];
+        }
+    }
+}

@@ -1,0 +1,37 @@
+// Copyright (c) 2026 Kevin Collins.
+// SPDX-License-Identifier: MPL-2.0-no-copyleft-exception
+
+dialect "../../../projects/nxbuild/language/nxbuild.Language.nxscript";
+module "../Apple.Environment.nxscript";
+
+Package UniversalInterfaces TargetCPU[x86_64, aarch64] TargetOS[darwin, iphonesim, ios] {
+    RootDirectory: "../../..";
+    SourceRoot: "packages/nexus-packages-apple/univint";
+    OutputRoot: "output/nxbuild-apple/" + @Apple.Name + "/univint";
+
+    FPC Units {
+        CompilerPath: @Apple.CompilerPath;
+        BuildKind: Unit;
+        SourceFiles: [
+            @UniversalInterfaces.SourceRoot + "/src/MacOS.pas",
+            @UniversalInterfaces.SourceRoot + "/src/MacOSAll.pas"
+        ];
+        OutputPath: @UniversalInterfaces.OutputRoot;
+        Config Options { DisableDefaultConfigFiles: True; }
+        Language Pascal { Mode: MacPas; }
+        Target Platform { OperatingSystem: @Apple.OS; }
+        Assembler Native { OutputFormat: "clang"; }
+        Definitions Symbols { Defines: []; }
+        Files Paths {
+            CompilerUtilitiesPath: @Apple.CompilerUtilitiesPath;
+            UnitPaths: [
+                @Apple.RTLPath,
+                @UniversalInterfaces.OutputRoot,
+                "output/nxbuild-apple/" + @Apple.Name + "/univint",
+                "packages/nexus-packages-apple/univint/src",
+                @UniversalInterfaces.SourceRoot + "/src"
+            ];
+            IncludePaths: [@UniversalInterfaces.SourceRoot + "/src"];
+        }
+    }
+}

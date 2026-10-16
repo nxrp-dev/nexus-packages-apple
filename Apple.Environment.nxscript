@@ -1,0 +1,51 @@
+// Copyright (c) 2026 Kevin Collins.
+// SPDX-License-Identifier: MPL-2.0-no-copyleft-exception
+
+// Configure matching target compilers/RTLs here. Paths resolve from Nexus root.
+// Defaults match the documented Win64-hosted Forge cross-build outputs.
+
+Environment Apple TargetCPU[x86_64] TargetOS[darwin] {
+    Name: "x86_64-darwin";
+    OS: "darwin";
+    SDKRoot: "../nexus-fpc/build/forge-bootstrap/cross/x86_64-darwin";
+    CompilerPath: @Apple.SDKRoot + "/ppcrossx64.exe";
+    RTLPath: @Apple.SDKRoot + "/rtl";
+    CompilerUtilitiesPath: "";
+}
+
+Environment Apple TargetCPU[aarch64] TargetOS[darwin] {
+    Name: "aarch64-darwin";
+    OS: "darwin";
+    SDKRoot: "../nexus-fpc/build/forge-bootstrap/cross/aarch64-darwin";
+    CompilerPath: @Apple.SDKRoot + "/ppcrossa64.exe";
+    RTLPath: @Apple.SDKRoot + "/rtl";
+    CompilerUtilitiesPath: "";
+}
+
+Environment Apple TargetCPU[x86_64] TargetOS[iphonesim] {
+    Name: "x86_64-iphonesim";
+    OS: "iphonesim";
+    SDKRoot: "../nexus-fpc/build/forge-bootstrap/cross/x86_64-iphonesim";
+    CompilerPath: @Apple.SDKRoot + "/ppcrossx64.exe";
+    RTLPath: @Apple.SDKRoot + "/rtl";
+    CompilerUtilitiesPath: "";
+}
+
+Environment Apple TargetCPU[aarch64] TargetOS[iphonesim] {
+    Name: "aarch64-iphonesim";
+    OS: "iphonesim";
+    SDKRoot: "../nexus-fpc/build/forge-bootstrap/cross/aarch64-iphonesim";
+    CompilerPath: @Apple.SDKRoot + "/ppcrossa64.exe";
+    RTLPath: @Apple.SDKRoot + "/rtl";
+    CompilerUtilitiesPath: "";
+}
+
+Environment Apple TargetCPU[aarch64] TargetOS[ios] {
+    Name: "aarch64-ios";
+    OS: "ios";
+    SDKRoot: "../nexus-fpc/build/forge-bootstrap/cross/aarch64-ios";
+    CompilerPath: @Apple.SDKRoot + "/ppcrossa64.exe";
+    RTLPath: @Apple.SDKRoot + "/rtl";
+    CompilerUtilitiesPath: "";
+}
+

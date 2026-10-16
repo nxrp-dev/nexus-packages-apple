@@ -1,0 +1,20 @@
+{
+  "univint": {
+    "source_revision": "b7bb9f717c6baf94eee76c8c051635184112680e",
+    "files": 909,
+    "source_bytes": 12041534,
+    "archive_sha256": "7a0dc63d781e7874f03825fe3ad4a73167133348b6dc72fa3d6755b4bb69bc7a"
+  },
+  "cocoaint": {
+    "source_revision": "b7bb9f717c6baf94eee76c8c051635184112680e",
+    "files": 1731,
+    "source_bytes": 5022576,
+    "archive_sha256": "8517f885bc56615296733b869b90bac76c93343e205630e0d45c3be4b996859a"
+  },
+  "iosxlocale": {
+    "source_revision": "b7bb9f717c6baf94eee76c8c051635184112680e",
+    "files": 5,
+    "source_bytes": 30616,
+    "archive_sha256": "a4acf706651e25f32bf5cc9cb6eb7e428f9e1799c01bb3552860233726d9e475"
+  }
+}

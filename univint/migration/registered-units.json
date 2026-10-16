@@ -1,0 +1,7 @@
+{
+  "recipe_revision": "781faeb495d6aeb9d98facf441b826958af2d378",
+  "roots": [
+    "MacOS.pas",
+    "MacOSAll.pas"
+  ]
+}

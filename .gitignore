@@ -1,0 +1,7 @@
+*.o
+*.ppu
+*.nxu
+*.a
+*.s
+*.rsj
+__pycache__/

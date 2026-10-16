@@ -1,0 +1,13 @@
+// Copyright (c) 2026 Kevin Collins.
+// SPDX-License-Identifier: MPL-2.0-no-copyleft-exception
+
+dialect "nxpackage.Language.nxscript";
+module ApplePackages "../Packages.RepositoryIndex.nxscript";
+
+Package AppleLocale {
+    Id: "NXRP.Apple.AppleLocale";
+    Author: "Yury Sidorov and Jonas Maebe";
+    Description: "Core Foundation locale settings and wide-string support.";
+    License: "LGPL-2.1-only WITH Independent-modules-exception";
+    Requires: [@ApplePackages.UniversalInterfaces];
+}

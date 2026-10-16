@@ -1,0 +1,22 @@
+// Copyright (c) 2026 Kevin Collins.
+// SPDX-License-Identifier: MPL-2.0-no-copyleft-exception
+
+dialect "nxpackage.Language.nxscript";
+
+RepositoryIndex ApplePackages {
+    LocalPackage UniversalInterfaces {
+        Id: "NXRP.Apple.UniversalInterfaces";
+        Descriptor: "univint/Package.nxscript";
+        Description: "Universal Apple C framework interfaces.";
+    }
+    LocalPackage CocoaInterfaces {
+        Id: "NXRP.Apple.CocoaInterfaces";
+        Descriptor: "cocoaint/Package.nxscript";
+        Description: "macOS Cocoa Objective-C interfaces.";
+    }
+    LocalPackage AppleLocale {
+        Id: "NXRP.Apple.AppleLocale";
+        Descriptor: "iosxlocale/Package.nxscript";
+        Description: "Apple locale and wide-string support.";
+    }
+}

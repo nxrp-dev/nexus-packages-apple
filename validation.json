@@ -1,0 +1,129 @@
+{
+  "checks": [
+    {
+      "check": "catalog",
+      "input": "packages/nexus-packages-apple/Packages.RepositoryIndex.nxscript",
+      "exit": 0
+    },
+    {
+      "check": "catalog",
+      "input": "packages/Packages.PackageIndex.nxscript",
+      "exit": 0
+    },
+    {
+      "check": "catalog",
+      "input": "packages/nexus-packages-apple/cocoaint/Package.nxscript",
+      "exit": 0
+    },
+    {
+      "check": "catalog",
+      "input": "packages/nexus-packages-apple/iosxlocale/Package.nxscript",
+      "exit": 0
+    },
+    {
+      "check": "catalog",
+      "input": "packages/nexus-packages-apple/univint/Package.nxscript",
+      "exit": 0
+    },
+    {
+      "check": "plan-only-host-tool-override",
+      "package": "univint",
+      "cpu": "x86_64",
+      "os": "darwin",
+      "exit": 0
+    },
+    {
+      "check": "plan-only-host-tool-override",
+      "package": "iosxlocale",
+      "cpu": "x86_64",
+      "os": "darwin",
+      "exit": 0
+    },
+    {
+      "check": "plan-only-host-tool-override",
+      "package": "cocoaint",
+      "cpu": "x86_64",
+      "os": "darwin",
+      "exit": 0
+    },
+    {
+      "check": "plan-only-host-tool-override",
+      "package": "univint",
+      "cpu": "aarch64",
+      "os": "darwin",
+      "exit": 0
+    },
+    {
+      "check": "plan-only-host-tool-override",
+      "package": "iosxlocale",
+      "cpu": "aarch64",
+      "os": "darwin",
+      "exit": 0
+    },
+    {
+      "check": "plan-only-host-tool-override",
+      "package": "cocoaint",
+      "cpu": "aarch64",
+      "os": "darwin",
+      "exit": 0
+    },
+    {
+      "check": "plan-only-host-tool-override",
+      "package": "univint",
+      "cpu": "x86_64",
+      "os": "iphonesim",
+      "exit": 0
+    },
+    {
+      "check": "plan-only-host-tool-override",
+      "package": "iosxlocale",
+      "cpu": "x86_64",
+      "os": "iphonesim",
+      "exit": 0
+    },
+    {
+      "check": "plan-only-host-tool-override",
+      "package": "univint",
+      "cpu": "aarch64",
+      "os": "iphonesim",
+      "exit": 0
+    },
+    {
+      "check": "plan-only-host-tool-override",
+      "package": "iosxlocale",
+      "cpu": "aarch64",
+      "os": "iphonesim",
+      "exit": 0
+    },
+    {
+      "check": "plan-only-host-tool-override",
+      "package": "univint",
+      "cpu": "aarch64",
+      "os": "ios",
+      "exit": 0
+    },
+    {
+      "check": "plan-only-host-tool-override",
+      "package": "iosxlocale",
+      "cpu": "aarch64",
+      "os": "ios",
+      "exit": 0
+    }
+  ],
+  "original_files_verified": {
+    "univint": 909,
+    "cocoaint": 1731,
+    "iosxlocale": 5
+  },
+  "cross_compilation": "Not run: matching Apple-target compiler/RTL SDKs are absent. Plan-only checks override the executable path without executing it.",
+  "search_path_consumer_build": {
+    "build_exit": 0
+  },
+  "old_source_files_removed": {
+    "cocoaint": 1731,
+    "iosxlocale": 5,
+    "univint": 909
+  },
+  "diff_checks": "passed in Nexus, Apple repository and NexusFPC",
+  "git_publication": "local changes only; no commit or push"
+}

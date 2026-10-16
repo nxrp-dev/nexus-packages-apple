@@ -1,0 +1,13 @@
+// Copyright (c) 2026 Kevin Collins.
+// SPDX-License-Identifier: MPL-2.0-no-copyleft-exception
+
+dialect "nxpackage.Language.nxscript";
+module ApplePackages "../Packages.RepositoryIndex.nxscript";
+
+Package CocoaInterfaces {
+    Id: "NXRP.Apple.CocoaInterfaces";
+    Author: "Apple Inc. and Free Pascal Cocoa interface contributors";
+    Description: "Objective-C Cocoa framework bindings for macOS.";
+    // Mixed inherited interface notices; see canonical Nexus ATTRIBUTIONS.md.
+    Requires: [@ApplePackages.UniversalInterfaces];
+}

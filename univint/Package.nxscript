@@ -1,0 +1,11 @@
+// Copyright (c) 2026 Kevin Collins.
+// SPDX-License-Identifier: MPL-2.0-no-copyleft-exception
+
+dialect "nxpackage.Language.nxscript";
+
+Package UniversalInterfaces {
+    Id: "NXRP.Apple.UniversalInterfaces";
+    Author: "Apple Inc.; Free Pascal and GNU Pascal interface contributors";
+    Description: "Universal Apple C framework interfaces for macOS, iOS and simulators.";
+    // Mixed inherited interface notices; see canonical Nexus ATTRIBUTIONS.md.
+}

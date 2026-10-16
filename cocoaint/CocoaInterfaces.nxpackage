@@ -1,0 +1,94 @@
+// Copyright (c) 2026 Kevin Collins.
+// SPDX-License-Identifier: MPL-2.0-no-copyleft-exception
+
+dialect "../../../projects/nxbuild/language/nxbuild.Language.nxscript";
+module "../Apple.Environment.nxscript";
+
+Package CocoaInterfaces TargetCPU[x86_64, aarch64] TargetOS[darwin] {
+    RootDirectory: "../../..";
+    SourceRoot: "packages/nexus-packages-apple/cocoaint";
+    OutputRoot: "output/nxbuild-apple/" + @Apple.Name + "/cocoaint";
+
+    FPC Units {
+        CompilerPath: @Apple.CompilerPath;
+        BuildKind: Unit;
+        SourceFiles: [
+            @CocoaInterfaces.SourceRoot + "/src/CocoaAll.pas",
+            @CocoaInterfaces.SourceRoot + "/src/AVFoundation.pas",
+            @CocoaInterfaces.SourceRoot + "/src/AVKit.pas",
+            @CocoaInterfaces.SourceRoot + "/src/Accounts.pas",
+            @CocoaInterfaces.SourceRoot + "/src/AddressBook.pas",
+            @CocoaInterfaces.SourceRoot + "/src/AppleScriptObjC.pas",
+            @CocoaInterfaces.SourceRoot + "/src/AudioVideoBridging.pas",
+            @CocoaInterfaces.SourceRoot + "/src/Automator.pas",
+            @CocoaInterfaces.SourceRoot + "/src/CFOpenDirectory.pas",
+            @CocoaInterfaces.SourceRoot + "/src/CalendarStore.pas",
+            @CocoaInterfaces.SourceRoot + "/src/CloudKit.pas",
+            @CocoaInterfaces.SourceRoot + "/src/Collaboration.pas",
+            @CocoaInterfaces.SourceRoot + "/src/CoreAudio.pas",
+            @CocoaInterfaces.SourceRoot + "/src/CoreAudioKit.pas",
+            @CocoaInterfaces.SourceRoot + "/src/CoreBluetooth.pas",
+            @CocoaInterfaces.SourceRoot + "/src/CoreLocation.pas",
+            @CocoaInterfaces.SourceRoot + "/src/CoreMedia.pas",
+            @CocoaInterfaces.SourceRoot + "/src/CoreMediaIO.pas",
+            @CocoaInterfaces.SourceRoot + "/src/CoreVideo.pas",
+            @CocoaInterfaces.SourceRoot + "/src/CryptoTokenKit.pas",
+            @CocoaInterfaces.SourceRoot + "/src/EventKit.pas",
+            @CocoaInterfaces.SourceRoot + "/src/FinderSync.pas",
+            @CocoaInterfaces.SourceRoot + "/src/GLKit.pas",
+            @CocoaInterfaces.SourceRoot + "/src/GameController.pas",
+            @CocoaInterfaces.SourceRoot + "/src/GameKit.pas",
+            @CocoaInterfaces.SourceRoot + "/src/IOBluetooth.pas",
+            @CocoaInterfaces.SourceRoot + "/src/IOBluetoothUI.pas",
+            @CocoaInterfaces.SourceRoot + "/src/ImageCaptureCore.pas",
+            @CocoaInterfaces.SourceRoot + "/src/ImageKit.pas",
+            @CocoaInterfaces.SourceRoot + "/src/InputMethodKit.pas",
+            @CocoaInterfaces.SourceRoot + "/src/InstallerPlugins.pas",
+            @CocoaInterfaces.SourceRoot + "/src/InstantMessage.pas",
+            @CocoaInterfaces.SourceRoot + "/src/LocalAuthentication.pas",
+            @CocoaInterfaces.SourceRoot + "/src/MapKit.pas",
+            @CocoaInterfaces.SourceRoot + "/src/MediaAccessibility.pas",
+            @CocoaInterfaces.SourceRoot + "/src/MediaLibrary.pas",
+            @CocoaInterfaces.SourceRoot + "/src/MultipeerConnectivity.pas",
+            @CocoaInterfaces.SourceRoot + "/src/NotificationCenter.pas",
+            @CocoaInterfaces.SourceRoot + "/src/OSAKit.pas",
+            @CocoaInterfaces.SourceRoot + "/src/OpenDirectory.pas",
+            @CocoaInterfaces.SourceRoot + "/src/PDFKit.pas",
+            @CocoaInterfaces.SourceRoot + "/src/PreferencePanes.pas",
+            @CocoaInterfaces.SourceRoot + "/src/PubSub.pas",
+            @CocoaInterfaces.SourceRoot + "/src/QuartzComposer.pas",
+            @CocoaInterfaces.SourceRoot + "/src/QuartzFilters.pas",
+            @CocoaInterfaces.SourceRoot + "/src/QuickLook.pas",
+            @CocoaInterfaces.SourceRoot + "/src/QuickLookUI.pas",
+            @CocoaInterfaces.SourceRoot + "/src/SceneKit.pas",
+            @CocoaInterfaces.SourceRoot + "/src/ScreenSaver.pas",
+            @CocoaInterfaces.SourceRoot + "/src/ScriptingBridge.pas",
+            @CocoaInterfaces.SourceRoot + "/src/SecurityFoundation.pas",
+            @CocoaInterfaces.SourceRoot + "/src/SecurityInterface.pas",
+            @CocoaInterfaces.SourceRoot + "/src/ServiceManagement.pas",
+            @CocoaInterfaces.SourceRoot + "/src/Social.pas",
+            @CocoaInterfaces.SourceRoot + "/src/SpriteKit.pas",
+            @CocoaInterfaces.SourceRoot + "/src/StoreKit.pas",
+            @CocoaInterfaces.SourceRoot + "/src/SyncServices.pas",
+            @CocoaInterfaces.SourceRoot + "/src/WebKit.pas",
+            @CocoaInterfaces.SourceRoot + "/src/iTunesLibrary.pas"
+        ];
+        OutputPath: @CocoaInterfaces.OutputRoot;
+        Config Options { DisableDefaultConfigFiles: True; }
+        Language Pascal { Mode: MacPas; }
+        Target Platform { OperatingSystem: @Apple.OS; }
+        Assembler Native { OutputFormat: "clang"; }
+        Definitions Symbols { Defines: ["MACOSALL", "COCOAALL", "LEGACY_SETNEEDSDISPLAY"]; }
+        Files Paths {
+            CompilerUtilitiesPath: @Apple.CompilerUtilitiesPath;
+            UnitPaths: [
+                @Apple.RTLPath,
+                @CocoaInterfaces.OutputRoot,
+                "output/nxbuild-apple/" + @Apple.Name + "/univint",
+                "packages/nexus-packages-apple/univint/src",
+                @CocoaInterfaces.SourceRoot + "/src"
+            ];
+            IncludePaths: [@CocoaInterfaces.SourceRoot + "/src"];
+        }
+    }
+}
