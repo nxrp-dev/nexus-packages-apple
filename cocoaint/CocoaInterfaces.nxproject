@@ -8,10 +8,10 @@ module "../Apple.Environment.nxscript";
 Project CocoaInterfaces TargetCPU[x86_64, aarch64] TargetOS[darwin] {
     Id: "NXRP.Apple.CocoaInterfaces.Units";
     Publishes Directories { Sources: [@CocoaInterfaces.OutputRoot]; }
-    Requires: [@Projects.CocoaInterfaces, @Projects.UniversalInterfaces];
+    Requires: [@Projects.AppleRTL, @Projects.CocoaInterfaces, @Projects.UniversalInterfaces];
     RootDirectory: "../../..";
     SourceRoot: "packages/nexus-packages-apple/cocoaint";
-    OutputRoot: "../../worktree/nexus/nxbuild-apple/" + @Apple.Name + "/cocoaint";
+    OutputRoot: "../../worktree/nexus/nxbuild-apple/" + @Apple.Name + "/cocoaint" + "/" + $BuildConfiguration;
 
     FPC Units {
         CompilerPath: @Apple.CompilerPath;
@@ -86,9 +86,8 @@ Project CocoaInterfaces TargetCPU[x86_64, aarch64] TargetOS[darwin] {
         Files Paths {
             CompilerUtilitiesPath: @Apple.CompilerUtilitiesPath;
             UnitPaths: [
-                @Apple.RTLPath,
                 @CocoaInterfaces.OutputRoot,
-                "output/nxbuild-apple/" + @Apple.Name + "/univint"
+                "../../worktree/nexus/nxbuild-apple/" + @Apple.Name + "/univint/" + $BuildConfiguration
             ];
             IncludePaths: [];
         }

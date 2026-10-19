@@ -8,10 +8,10 @@ module "../Apple.Environment.nxscript";
 Project UniversalInterfaces TargetCPU[x86_64, aarch64] TargetOS[darwin, iphonesim, ios] {
     Id: "NXRP.Apple.UniversalInterfaces.Units";
     Publishes Directories { Sources: [@UniversalInterfaces.OutputRoot]; }
-    Requires: [@Projects.UniversalInterfaces];
+    Requires: [@Projects.AppleRTL, @Projects.UniversalInterfaces];
     RootDirectory: "../../..";
     SourceRoot: "packages/nexus-packages-apple/univint";
-    OutputRoot: "../../worktree/nexus/nxbuild-apple/" + @Apple.Name + "/univint";
+    OutputRoot: "../../worktree/nexus/nxbuild-apple/" + @Apple.Name + "/univint" + "/" + $BuildConfiguration;
 
     FPC Units {
         CompilerPath: @Apple.CompilerPath;
@@ -29,9 +29,7 @@ Project UniversalInterfaces TargetCPU[x86_64, aarch64] TargetOS[darwin, iphonesi
         Files Paths {
             CompilerUtilitiesPath: @Apple.CompilerUtilitiesPath;
             UnitPaths: [
-                @Apple.RTLPath,
-                @UniversalInterfaces.OutputRoot,
-                "output/nxbuild-apple/" + @Apple.Name + "/univint"
+                @UniversalInterfaces.OutputRoot
             ];
             IncludePaths: [];
         }

@@ -1,0 +1,12 @@
+// Copyright (c) 2026 Kevin Collins.
+// SPDX-License-Identifier: MPL-2.0-no-copyleft-exception
+
+dialect "../../projects/nxbuild/language/nxbuild.Language.nxscript";
+module "Apple.Environment.nxscript";
+
+Project AppleRTL TargetCPU[x86_64, aarch64] TargetOS[darwin, iphonesim, ios] {
+    Id: "NXRP.SDK.AppleRTL";
+    RootDirectory: "../..";
+    Description: "Installed Apple target RTL units.";
+    Publishes Directories { Sources: [@Apple.SDKRoot + "/rtl"]; }
+}

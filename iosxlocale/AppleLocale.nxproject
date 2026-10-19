@@ -8,10 +8,10 @@ module "../Apple.Environment.nxscript";
 Project AppleLocale TargetCPU[x86_64, aarch64] TargetOS[darwin, iphonesim, ios] {
     Id: "NXRP.Apple.AppleLocale.Units";
     Publishes Directories { Sources: [@AppleLocale.OutputRoot]; }
-    Requires: [@Projects.AppleLocale, @Projects.UniversalInterfaces];
+    Requires: [@Projects.AppleRTL, @Projects.AppleLocale, @Projects.UniversalInterfaces];
     RootDirectory: "../../..";
     SourceRoot: "packages/nexus-packages-apple/iosxlocale";
-    OutputRoot: "../../worktree/nexus/nxbuild-apple/" + @Apple.Name + "/iosxlocale";
+    OutputRoot: "../../worktree/nexus/nxbuild-apple/" + @Apple.Name + "/iosxlocale" + "/" + $BuildConfiguration;
 
     FPC Units {
         CompilerPath: @Apple.CompilerPath;
@@ -29,9 +29,8 @@ Project AppleLocale TargetCPU[x86_64, aarch64] TargetOS[darwin, iphonesim, ios] 
         Files Paths {
             CompilerUtilitiesPath: @Apple.CompilerUtilitiesPath;
             UnitPaths: [
-                @Apple.RTLPath,
                 @AppleLocale.OutputRoot,
-                "output/nxbuild-apple/" + @Apple.Name + "/univint"
+                "../../worktree/nexus/nxbuild-apple/" + @Apple.Name + "/univint/" + $BuildConfiguration
             ];
             IncludePaths: [];
         }

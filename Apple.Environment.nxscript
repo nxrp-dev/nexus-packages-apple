@@ -9,7 +9,6 @@ Environment Apple TargetCPU[x86_64] TargetOS[darwin] {
     OS: "darwin";
     SDKRoot: "../nexus-fpc/build/forge-bootstrap/cross/x86_64-darwin";
     CompilerPath: @Apple.SDKRoot + "/ppcrossx64.exe";
-    RTLPath: @Apple.SDKRoot + "/rtl";
     CompilerUtilitiesPath: "";
 }
 
@@ -18,7 +17,6 @@ Environment Apple TargetCPU[aarch64] TargetOS[darwin] {
     OS: "darwin";
     SDKRoot: "../nexus-fpc/build/forge-bootstrap/cross/aarch64-darwin";
     CompilerPath: @Apple.SDKRoot + "/ppcrossa64.exe";
-    RTLPath: @Apple.SDKRoot + "/rtl";
     CompilerUtilitiesPath: "";
 }
 
@@ -27,7 +25,6 @@ Environment Apple TargetCPU[x86_64] TargetOS[iphonesim] {
     OS: "iphonesim";
     SDKRoot: "../nexus-fpc/build/forge-bootstrap/cross/x86_64-iphonesim";
     CompilerPath: @Apple.SDKRoot + "/ppcrossx64.exe";
-    RTLPath: @Apple.SDKRoot + "/rtl";
     CompilerUtilitiesPath: "";
 }
 
@@ -36,7 +33,6 @@ Environment Apple TargetCPU[aarch64] TargetOS[iphonesim] {
     OS: "iphonesim";
     SDKRoot: "../nexus-fpc/build/forge-bootstrap/cross/aarch64-iphonesim";
     CompilerPath: @Apple.SDKRoot + "/ppcrossa64.exe";
-    RTLPath: @Apple.SDKRoot + "/rtl";
     CompilerUtilitiesPath: "";
 }
 
@@ -45,7 +41,6 @@ Environment Apple TargetCPU[aarch64] TargetOS[ios] {
     OS: "ios";
     SDKRoot: "../nexus-fpc/build/forge-bootstrap/cross/aarch64-ios";
     CompilerPath: @Apple.SDKRoot + "/ppcrossa64.exe";
-    RTLPath: @Apple.SDKRoot + "/rtl";
     CompilerUtilitiesPath: "";
 }
 
