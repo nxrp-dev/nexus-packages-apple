@@ -1,0 +1,16 @@
+// Copyright (c) 2026 Kevin Collins.
+// SPDX-License-Identifier: MPL-2.0-no-copyleft-exception
+
+dialect "../../../projects/nxbuild/language/nxbuild.Language.nxscript";
+module Projects "../../../projects/nxbuild/Projects.nxscript";
+
+Project UniversalInterfaces {
+    Id: "NXRP.Apple.UniversalInterfaces";
+    RootDirectory: "../../..";
+    Author: "Apple Inc.; Free Pascal and GNU Pascal interface contributors";
+    Description: "Universal Apple C framework interfaces for macOS, iOS and simulators.";
+    Publishes Directories {
+        Sources: ["packages/nexus-packages-apple/univint/src"];
+        Headers: ["packages/nexus-packages-apple/univint/src"];
+    }
+}

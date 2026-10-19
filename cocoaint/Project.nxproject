@@ -1,0 +1,17 @@
+// Copyright (c) 2026 Kevin Collins.
+// SPDX-License-Identifier: MPL-2.0-no-copyleft-exception
+
+dialect "../../../projects/nxbuild/language/nxbuild.Language.nxscript";
+module Projects "../../../projects/nxbuild/Projects.nxscript";
+
+Project CocoaInterfaces {
+    Id: "NXRP.Apple.CocoaInterfaces";
+    RootDirectory: "../../..";
+    Author: "Apple Inc. and Free Pascal Cocoa interface contributors";
+    Description: "Objective-C Cocoa framework bindings for macOS.";
+    Requires: [@Projects.UniversalInterfaces];
+    Publishes Directories {
+        Sources: ["packages/nexus-packages-apple/cocoaint/src"];
+        Headers: ["packages/nexus-packages-apple/cocoaint/src"];
+    }
+}

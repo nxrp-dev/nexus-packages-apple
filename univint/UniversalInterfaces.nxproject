@@ -2,12 +2,16 @@
 // SPDX-License-Identifier: MPL-2.0-no-copyleft-exception
 
 dialect "../../../projects/nxbuild/language/nxbuild.Language.nxscript";
+module Projects "../../../projects/nxbuild/Projects.nxscript";
 module "../Apple.Environment.nxscript";
 
-Package UniversalInterfaces TargetCPU[x86_64, aarch64] TargetOS[darwin, iphonesim, ios] {
+Project UniversalInterfaces TargetCPU[x86_64, aarch64] TargetOS[darwin, iphonesim, ios] {
+    Id: "NXRP.Apple.UniversalInterfaces.Units";
+    Publishes Directories { Sources: [@UniversalInterfaces.OutputRoot]; }
+    Requires: [@Projects.UniversalInterfaces];
     RootDirectory: "../../..";
     SourceRoot: "packages/nexus-packages-apple/univint";
-    OutputRoot: "output/nxbuild-apple/" + @Apple.Name + "/univint";
+    OutputRoot: "../../worktree/nexus/nxbuild-apple/" + @Apple.Name + "/univint";
 
     FPC Units {
         CompilerPath: @Apple.CompilerPath;
@@ -27,11 +31,9 @@ Package UniversalInterfaces TargetCPU[x86_64, aarch64] TargetOS[darwin, iphonesi
             UnitPaths: [
                 @Apple.RTLPath,
                 @UniversalInterfaces.OutputRoot,
-                "output/nxbuild-apple/" + @Apple.Name + "/univint",
-                "packages/nexus-packages-apple/univint/src",
-                @UniversalInterfaces.SourceRoot + "/src"
+                "output/nxbuild-apple/" + @Apple.Name + "/univint"
             ];
-            IncludePaths: [@UniversalInterfaces.SourceRoot + "/src"];
+            IncludePaths: [];
         }
     }
 }

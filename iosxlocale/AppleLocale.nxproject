@@ -2,12 +2,16 @@
 // SPDX-License-Identifier: MPL-2.0-no-copyleft-exception
 
 dialect "../../../projects/nxbuild/language/nxbuild.Language.nxscript";
+module Projects "../../../projects/nxbuild/Projects.nxscript";
 module "../Apple.Environment.nxscript";
 
-Package AppleLocale TargetCPU[x86_64, aarch64] TargetOS[darwin, iphonesim, ios] {
+Project AppleLocale TargetCPU[x86_64, aarch64] TargetOS[darwin, iphonesim, ios] {
+    Id: "NXRP.Apple.AppleLocale.Units";
+    Publishes Directories { Sources: [@AppleLocale.OutputRoot]; }
+    Requires: [@Projects.AppleLocale, @Projects.UniversalInterfaces];
     RootDirectory: "../../..";
     SourceRoot: "packages/nexus-packages-apple/iosxlocale";
-    OutputRoot: "output/nxbuild-apple/" + @Apple.Name + "/iosxlocale";
+    OutputRoot: "../../worktree/nexus/nxbuild-apple/" + @Apple.Name + "/iosxlocale";
 
     FPC Units {
         CompilerPath: @Apple.CompilerPath;
@@ -27,11 +31,9 @@ Package AppleLocale TargetCPU[x86_64, aarch64] TargetOS[darwin, iphonesim, ios] 
             UnitPaths: [
                 @Apple.RTLPath,
                 @AppleLocale.OutputRoot,
-                "output/nxbuild-apple/" + @Apple.Name + "/univint",
-                "packages/nexus-packages-apple/univint/src",
-                @AppleLocale.SourceRoot + "/src"
+                "output/nxbuild-apple/" + @Apple.Name + "/univint"
             ];
-            IncludePaths: [@AppleLocale.SourceRoot + "/src"];
+            IncludePaths: [];
         }
     }
 }

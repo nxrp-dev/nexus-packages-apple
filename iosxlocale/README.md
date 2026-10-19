@@ -9,7 +9,7 @@ in `migration/`. Canonical credit, source revision, import evidence and licensin
 are in [Nexus attributions](../../../ATTRIBUTIONS.md#apple-platform-packages).
 
 `Package.nxscript` declares `NXRP.Apple.AppleLocale`.
-`AppleLocale.nxpackage` builds 2 ordinary unit roots and their implicit dependencies.
+`AppleLocale.nxproject` builds 2 ordinary unit roots and their implicit dependencies.
 Namespace wrappers are retained for separate namespace consumers.
 
 See the [repository build instructions](../README.md) and

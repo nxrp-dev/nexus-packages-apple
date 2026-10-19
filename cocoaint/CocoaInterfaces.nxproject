@@ -2,12 +2,16 @@
 // SPDX-License-Identifier: MPL-2.0-no-copyleft-exception
 
 dialect "../../../projects/nxbuild/language/nxbuild.Language.nxscript";
+module Projects "../../../projects/nxbuild/Projects.nxscript";
 module "../Apple.Environment.nxscript";
 
-Package CocoaInterfaces TargetCPU[x86_64, aarch64] TargetOS[darwin] {
+Project CocoaInterfaces TargetCPU[x86_64, aarch64] TargetOS[darwin] {
+    Id: "NXRP.Apple.CocoaInterfaces.Units";
+    Publishes Directories { Sources: [@CocoaInterfaces.OutputRoot]; }
+    Requires: [@Projects.CocoaInterfaces, @Projects.UniversalInterfaces];
     RootDirectory: "../../..";
     SourceRoot: "packages/nexus-packages-apple/cocoaint";
-    OutputRoot: "output/nxbuild-apple/" + @Apple.Name + "/cocoaint";
+    OutputRoot: "../../worktree/nexus/nxbuild-apple/" + @Apple.Name + "/cocoaint";
 
     FPC Units {
         CompilerPath: @Apple.CompilerPath;
@@ -84,11 +88,9 @@ Package CocoaInterfaces TargetCPU[x86_64, aarch64] TargetOS[darwin] {
             UnitPaths: [
                 @Apple.RTLPath,
                 @CocoaInterfaces.OutputRoot,
-                "output/nxbuild-apple/" + @Apple.Name + "/univint",
-                "packages/nexus-packages-apple/univint/src",
-                @CocoaInterfaces.SourceRoot + "/src"
+                "output/nxbuild-apple/" + @Apple.Name + "/univint"
             ];
-            IncludePaths: [@CocoaInterfaces.SourceRoot + "/src"];
+            IncludePaths: [];
         }
     }
 }

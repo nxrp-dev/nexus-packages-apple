@@ -4,9 +4,9 @@ Dedicated Apple-platform packages relocated from NexusFPC on 2026-10-16:
 
 | Package | Descriptor | Build recipe | Targets |
 | --- | --- | --- | --- |
-| `univint` | [UniversalInterfaces](univint/Package.nxscript) | [UniversalInterfaces.nxpackage](univint/UniversalInterfaces.nxpackage) | x86_64/aarch64 macOS and simulators; aarch64 iOS |
-| `cocoaint` | [CocoaInterfaces](cocoaint/Package.nxscript) | [CocoaInterfaces.nxpackage](cocoaint/CocoaInterfaces.nxpackage) | x86_64/aarch64 macOS |
-| `iosxlocale` | [AppleLocale](iosxlocale/Package.nxscript) | [AppleLocale.nxpackage](iosxlocale/AppleLocale.nxpackage) | x86_64/aarch64 macOS and simulators; aarch64 iOS |
+| `univint` | [UniversalInterfaces](univint/Package.nxscript) | [UniversalInterfaces.nxproject](univint/UniversalInterfaces.nxproject) | x86_64/aarch64 macOS and simulators; aarch64 iOS |
+| `cocoaint` | [CocoaInterfaces](cocoaint/Package.nxscript) | [CocoaInterfaces.nxproject](cocoaint/CocoaInterfaces.nxproject) | x86_64/aarch64 macOS |
+| `iosxlocale` | [AppleLocale](iosxlocale/Package.nxscript) | [AppleLocale.nxproject](iosxlocale/AppleLocale.nxproject) | x86_64/aarch64 macOS and simulators; aarch64 iOS |
 
 The [repository catalog](Packages.RepositoryIndex.nxscript) lists all three.
 CocoaInterfaces and AppleLocale directly require UniversalInterfaces.
@@ -33,9 +33,9 @@ The retained combinations are `x86_64/darwin`, `aarch64/darwin`,
 From the Nexus root, for example:
 
 ```sh
-nxbuild /action=build /project=packages/nexus-packages-apple/univint/UniversalInterfaces.nxpackage /targetos=darwin /targetcpu=aarch64
-nxbuild /action=build /project=packages/nexus-packages-apple/cocoaint/CocoaInterfaces.nxpackage /targetos=darwin /targetcpu=aarch64
-nxbuild /action=build /project=packages/nexus-packages-apple/iosxlocale/AppleLocale.nxpackage /targetos=darwin /targetcpu=aarch64
+nxbuild /action=build /project=packages/nexus-packages-apple/univint/UniversalInterfaces.nxproject /targetos=darwin /targetcpu=aarch64
+nxbuild /action=build /project=packages/nexus-packages-apple/cocoaint/CocoaInterfaces.nxproject /targetos=darwin /targetcpu=aarch64
+nxbuild /action=build /project=packages/nexus-packages-apple/iosxlocale/AppleLocale.nxproject /targetos=darwin /targetcpu=aarch64
 ```
 
 Build UniversalInterfaces first. Output is
